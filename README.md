@@ -13,9 +13,9 @@ Classify the fashion products into 11(currently) categories.
 
 ## Thoughts
 
-Here we have a multi-modal dataset with Image and Text information but no labels. This is an unsupervised categorization or classification into those 11 categories. In essense there are 11 possible assignmentsyou can give to a particular sample with an image and description.
+Here we have a multi-modal dataset with Image and Text information but no labels. This is an unsupervised categorization or classification into those 11 categories. In essense there are 11 possible assignments you can give to a particular sample with an image and description. We can think of the data as having 11 discernable clusters for now.
 
-It is possible to annotate few samples and then learn from those and convert this to a semi supervised learning problem. However we only have 1000 samples right now. Labelling a partition of it and then training on those to predict the rest won't be effective. Rather it would be faster to label them all and be more accurate. Even though the test size is only 1000, we need to think of a solution that can scale well. 
+It is possible to annotate few samples and then learn from those to convert this to a semi-supervised learning approach. However we only have 1000 samples right now. Labelling a partition of it and then training on those to predict the rest won't be effective. Rather it would be faster to label them all and be more accurate. Even though the test size is only 1000, we need to think of a solution that can scale well. 
 
 After exploring the data:
 * Number of accessible product images : 967
@@ -23,15 +23,41 @@ After exploring the data:
 
 The missing values in each mode of data are not correspondent. The places where we lack text data, we have images and the instances where images cannot be accessed, the text data should suffice.
 
-Essentially  Product_image + product_description == Product_attributes
+Essentially,
+          
+          Product_image + product_description == Product_attributes
 
-We need to extract information from both the image and text data to represent each sample as a vector and try to cluster them.
+We need to extract information from both the image and text data to represent each sample as a vector and try to cluster them, or group them based on a similarity metric.
+
+
+### Possible Problems 
+
+Product data can be diverse and unbalanced. Not all descriptions may contain the brand name, the size, physical features, price tag, gender info, age groups, product related jargon etc
+
+There can be a hierarchy in the classes. One can be a hypernym of the other or a very close match. Eg: Swimwear and Intimate mgith have similar descriptions
+
+The ethnicity/complexion of the models wearing the clothes might not be stratified and that image data might misclassify few results. We could segment the items in the image from the person wearing the clothes or accessories.
+
 
 
 ### Text data :
-Missing descriptions can be written as <UNK> with an unknown tag as a marker
+Missing descriptions can be written as <UNK> with an unknown tag as a marker.
+Around 400 descriptions start with shop the women's     
 
 
+### Intuition
+
+* Dresses - Either worn by model or displayed as stand-alone item or a group of them.
+* Tops -  Either worn by model or displayed as stand-alone item or a group of them.
+* Jeans  - Most of the images are focused on a ppair of legs(waist down) or a model sitting while wearing them(Can be misclassified). 
+* Skirts - Either worn by model or displayed as stand-alone item or a group of them.
+* Rompers - Either worn by model or displayed as stand-alone item or a group of them.
+* Shoes - Almost all images would be stand alone pictures of shoes or a foot wearing one. Might be ambiguous if the whole picture of a model is present. Text description will be the deciding factor.
+* Bags - 
+* Jewelry -  Mostly empty(white) or similar colored background with a circle/wavy line or a triangular shaped closed object that can be identified easily if the image is turned from RGB to greyscale or we pass in a filter to identify changes in pixels. These should be the easiest to group without many misclassifications or any ambiguity.
+* Swimwear - 
+* Intimates - 
+* Others - This might be reserved for the outliers or sparse clusters that don't quite fit in with the rest. these include images of random objects like shades, bottles, make up items etc.,
 
 
 ## Conclusions
