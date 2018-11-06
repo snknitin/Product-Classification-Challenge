@@ -1,30 +1,23 @@
 # Product-Classification-Challenge
 
-**Input Given :**
-­ a catalog of 1000 fashion products in product_data.json.
-­ Each product has a description and a product image url.   
+**Input Given :**  
+* A catalog of 1000 fashion products in product_data.json.
+* Each product has a description and a product image url.   
 
 
-**Objective :**
+**Objective :**   
 
 Classify the fashion products into 11(currently) categories.
 
--Dresses
--Tops
--Jeans
--Skirts
--Rompers
--Shoes
--Bags
--Jewelry
--Swimwear
--Intimates
--Others
+     Dresses, Tops, Jeans, Skirts, Rompers, Shoes, Bags, Jewelry, Swimwear, Intimates, Others
 
 ## Thoughts
 
 
 
+
+
+## Conclusions
 ­ Answers to the following questions:
 ­ Why are you designing the solution in this way?
 ­ What are the aspects that you considered when designing?
