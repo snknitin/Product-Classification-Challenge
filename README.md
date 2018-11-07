@@ -54,7 +54,10 @@ Representation:
 2) Word2Vec - can use gensim to create it but the data is too small to capture any distributional hypothesis for context words. Doubtful of its efficency
 3) TFIDF - might require less processing. Might be overkill for this usecase but likely to yield best results sicne we stick to the lexicon of this dataset and the impact of non-informative words will be lowered by the IDF and the dimension of data can be reduced. 
 
+### Image Data
 
+Missing data is substituted with a blank(image of zeros in pixel values)  
+We can use a CNN(pretrained) to combine low-level features (lines, edges, colors) to more and more abstract features (squares, circles, objects, faces)  
 
 ### Intuition
 
