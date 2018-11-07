@@ -57,7 +57,10 @@ Representation:
 ### Image Data
 
 Missing data is substituted with a blank(image of zeros in pixel values)  
-We can use a CNN(pretrained) to combine low-level features (lines, edges, colors) to more and more abstract features (squares, circles, objects, faces)  
+We can use a CNN(pretrained/using Image-Net/VGG) to combine low-level features (lines, edges, colors) to more and more abstract features (squares, circles, objects, faces)  
+The extracted local features must be:
+* Repeatable and precise so they can be extracted from different images showing the same object.
+* Distinctive to the image, so images with different structure will not have them.
 
 ### Intuition
 
