@@ -41,9 +41,23 @@ The ethnicity/complexion of the models wearing the clothes might not be stratifi
 
 
 ### Text data :
-Missing descriptions can be written as <UNK> with an unknown tag as a marker.
-Around 400 descriptions start with shop the women's     
 
+Missing descriptions can be written as <UNK> with an unknown tag as a marker.    
+Around 400 descriptions start with "shop the women's", which may be indicative of certain images or products.     
+Some unnecessry tags can be manually removed, the rest of the html tags are removed by BeautifulSoup parser.  
+Tokenization and lemmatization, along with removing stopwords or punctuations.
+Certain descriptions are in a different language so it would not be useful to pull pretrained embeddings.
+
+
+Representation:
+1) BOW - can create an n-dimensional vector for unique words but might be sparse.
+2) Word2Vec - can use gensim to create it but the data is too small to capture any distributional hypothesis for context words. Doubtful of its efficency
+3) TFIDF - might require less processing. Might be overkill for this usecase but likely to yield best results sicne we stick to the lexicon of this dataset and the impact of non-informative words will be lowered by the IDF and the dimension of data can be reduced. 
+
+### Image Data
+
+Missing data is substituted with a blank(image of zeros in pixel values)  
+We can use a CNN(pretrained) to combine low-level features (lines, edges, colors) to more and more abstract features (squares, circles, objects, faces)  
 
 ### Intuition
 
