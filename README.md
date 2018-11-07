@@ -57,7 +57,7 @@ Representation:
 ### Image Data
 
 Missing data is substituted with a blank(image of zeros in pixel values) 
-All images are resized to (200,200)  
+All images are resized to (200,200)  and i made sure that the channels are 3 and not 4 like in some cases
 We can use a CNN(pretrained/using Image-Net/VGG) to combine low-level features (lines, edges, colors) to more and more abstract features (squares, circles, objects, faces)  
 The extracted local features must be:
 * Repeatable and precise so they can be extracted from different images showing the same object.
@@ -90,4 +90,4 @@ Answers to the following questions:
 
 ## Results
 
-­ Classification results for all 1000 fashion products are added in the results folder
+Classification results for all 1000 fashion products are added in the results folder
