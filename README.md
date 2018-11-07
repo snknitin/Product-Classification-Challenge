@@ -27,7 +27,11 @@ Essentially,
           
           Product_image + product_description == Product_attributes
 
-We need to extract information from both the image and text data to represent each sample as a vector and try to cluster them, or group them based on a similarity metric.
+We need to extract information from both the image and text data to represent each sample as a vector and try to cluster them, or group them based on a similarity metric. We want to identify pairs or sets of similar products. Without labels, this is either a clustering or a tagging problem and with labels , this is a classification problem.
+
+1) Extract features from the multi-modal data and create a representation of useful attributes
+2) Calculate similarity among those feature vectors - Cosine or jaccard similarity/LSH
+
 
 
 ### Possible Problems 
@@ -84,10 +88,27 @@ Answers to the following questions:
 1) **Why are you designing the solution in this way?**  
 2) **What are the aspects that you considered when designing?**    
 3) **What are the cases your solution covers, how are they covered and why are they important?**    
+
+
+
 4) **What are the cases your solution does not cover and what are the ways you can extend your current solution for them?**  
 
+Confusion Driven Probabilistic Fusion++ (CDPF++), that is cognizant of the disparity in the discriminative power of different types of signals and hence makes use of the confusion matrix of dominant signal (text in our setting) to prudently leverage the weaker signal (image), for an improved performance
+
+Relying exclusively on text, we might suffer from the following problems 
+ 
+* **Overlapping text across fine-grained hierarchical categories :** Some perfectly valid textual descriptions for two completely different products (an Iphone and a Phone cover) might differ in just one word: “Iphone 7 with Case” and “Iphone 7 Case”
+* **Short descriptions from merchants** : Some of the text might just be a model number of a particular item
+* **Vocabulary mis-match** : Laptop and notebook might be interchageable 
+
+
+With images, we might have teh following problems:
+
+* Few products from the same category (say ‘Tops’) can have completely different images of different types of clothes of different colors. The association
+between categories and images can be noisy if the category is broad.
+* Instead of using the image signal (the weaker signal compared to text) to learn the entire discriminative surface over a large number of categories, it should be selectively used to learn a decision surface that discriminates a much fewer number of categories. It might be computationally inefficient to learn multiple categories 
 
 
 ## Results
 
-Classification results for all 1000 fashion products are added in the results folder
+Classification results for all 1000 fashion products are added in the Data folder
