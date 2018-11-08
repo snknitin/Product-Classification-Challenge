@@ -71,7 +71,23 @@ The extracted local features must be:
 
 **Final Text features :** Flattened vectors from the VGG19 imagenet architecture, passed into feed forward layers using dropout and relu activations. Final dimension size = 256  
 
+A 100X100 grid of imagesin the data
+
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_0.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_100.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_200.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_300.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_400.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_500.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_600.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_700.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_800.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_900.PNG)
+
+
 ### Intuition
+
+
 
 * Dresses - Either worn by model or displayed as stand-alone item or a group of them.
 * Tops -  Either worn by model or displayed as stand-alone item or a group of them.
@@ -114,5 +130,14 @@ between categories and images can be noisy if the category is broad.
 
 
 ## Results
+
+* PCA and T-SNE on 2D 
+
+     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA2dcomb.PNG)
+
+* PCA and T-SNE on 3D 
+
+     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA3dcombine.PNG)
+     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/T-SNE3dcombine.PNG)
 
 Classification results for all 1000 fashion products are added in the Data folder
