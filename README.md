@@ -47,25 +47,29 @@ The ethnicity/complexion of the models wearing the clothes might not be stratifi
 ### Text data :
 
 Missing descriptions can be written as <UNK> with an unknown tag as a marker.    
-Around 400 descriptions start with "shop the women's", which may be indicative of certain images or products.     
+Around 400 descriptions start with "shop the women's", which may be indicative of certain images or products or just noise.     
 Some unnecessry tags can be manually removed, the rest of the html tags are removed by BeautifulSoup parser.  
-Tokenization and lemmatization, along with removing stopwords or punctuations.
-Certain descriptions are in a different language so it would not be useful to pull pretrained embeddings.
+Tokenization and Stemming, along with removing stopwords or punctuations.
+Certain descriptions are in a different language like French and German,so it would not be useful to pull pretrained embeddings.
 
 
-Representation:
+Possible ideas:
 1) BOW - can create an n-dimensional vector for unique words but might be sparse.
 2) Word2Vec - can use gensim to create it but the data is too small to capture any distributional hypothesis for context words. Doubtful of its efficency
 3) TFIDF - might require less processing. Might be overkill for this usecase but likely to yield best results sicne we stick to the lexicon of this dataset and the impact of non-informative words will be lowered by the IDF and the dimension of data can be reduced. 
 
+**Final Text features :** Word2vec embeddings of the words in the sentence averaged by using tfidf scores as weights. Dimension size = 300
+
 ### Image Data
 
-Missing data is substituted with a blank(image of zeros in pixel values) 
-All images are resized to (200,200)  and i made sure that the channels are 3 and not 4 like in some cases
-We can use a CNN(pretrained/using Image-Net/VGG) to combine low-level features (lines, edges, colors) to more and more abstract features (squares, circles, objects, faces)  
-The extracted local features must be:
-* Repeatable and precise so they can be extracted from different images showing the same object.
-* Distinctive to the image, so images with different structure will not have them.
+Missing data is substituted with a blank(image of zeros in pixel values)   
+All images are resized to (200,200)  and I made sure that the channels are 3 and not 4 like in some cases  
+I can use a CNN(pretrained/using Image-Net/VGG) to combine low-level features (lines, edges, colors) to more and more abstract features (squares, circles, objects, faces)  and then pass it through a feed forward netwrok to reduce dimensions  
+The extracted local features must be:  
+* Repeatable and precise so they can be extracted from different images showing the same object.  
+* Distinctive to the image, so images with different structure will not have them.  
+
+**Final Text features :** Flattened vectors from the VGG19 imagenet architecture, passed into feed forward layers using dropout and relu activations. Final dimension size = 256  
 
 ### Intuition
 
@@ -77,7 +81,7 @@ The extracted local features must be:
 * Shoes - Almost all images would be stand alone pictures of shoes or a foot wearing one. Might be ambiguous if the whole picture of a model is present. Text description will be the deciding factor.
 * Bags - 
 * Jewelry -  Mostly empty(white) or similar colored background with a circle/wavy line or a triangular shaped closed object that can be identified easily if the image is turned from RGB to greyscale or we pass in a filter to identify changes in pixels. These should be the easiest to group without many misclassifications or any ambiguity.
-* Swimwear - 
+* Swimwear -  This and intimates might be a difficult to categorize since the images will mostly be similar
 * Intimates - 
 * Others - This might be reserved for the outliers or sparse clusters that don't quite fit in with the rest. these include images of random objects like shades, bottles, make up items etc.,
 
@@ -87,7 +91,7 @@ The extracted local features must be:
 Answers to the following questions:
 1) **Why are you designing the solution in this way?**  
 2) **What are the aspects that you considered when designing?**    
-3) **What are the cases your solution covers, how are they covered and why are they important?**    
+3) **What are the cases your solution covers, how are they covered and why are they important?**
 
 
 
@@ -102,7 +106,7 @@ Relying exclusively on text, we might suffer from the following problems
 * **Vocabulary mis-match** : Laptop and notebook might be interchageable 
 
 
-With images, we might have teh following problems:
+With images, we might have the following problems:
 
 * Few products from the same category (say ‘Tops’) can have completely different images of different types of clothes of different colors. The association
 between categories and images can be noisy if the category is broad.
