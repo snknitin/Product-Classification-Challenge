@@ -17,7 +17,7 @@ Here we have a multi-modal dataset with Image and Text information but no labels
 
 It is possible to annotate few samples and then learn from those to convert this to a semi-supervised learning approach. However we only have 1000 samples right now. Labelling a partition of it and then training on those to predict the rest won't be effective. Rather it would be faster to label them all and be more accurate. Even though the test size is only 1000, we need to think of a solution that can scale well. 
 
-After exploring the data:
+After [exploring the data](https://github.com/snknitin/Product-Classification-Challenge/blob/master/Data_Exploration.ipynb):
 * Number of accessible product images : 967
 * Number of product descriptions : 1000(Of which some are empty)
 
@@ -31,6 +31,8 @@ We need to extract information from both the image and text data to represent ea
 
 1) Extract features from the multi-modal data and create a representation of useful attributes
 2) Calculate similarity among those feature vectors - Cosine or jaccard similarity/LSH
+
+Code in [here](https://github.com/snknitin/Product-Classification-Challenge/blob/master/Combined_approach.ipynb)
 
 
 
@@ -51,6 +53,12 @@ Around 400 descriptions start with "shop the women's", which may be indicative o
 Some unnecessry tags can be manually removed, the rest of the html tags are removed by BeautifulSoup parser.  
 Tokenization and Stemming, along with removing stopwords or punctuations.
 Certain descriptions are in a different language like French and German,so it would not be useful to pull pretrained embeddings.
+Other :
+	* urban outfitters for merchandise from the weeknd's album, trilogy. shop this collection of tees and hoodies or grab a vinyl for your record player*
+	* irish moor mud purifying black mask + cucumber gel hydrating mask + pumpkin enzyme dermal mask.  **content + care***
+	* detoxifying facial cleanser from la-based port products. formulated with yucca root extract, a natural cleanser that’s gentle enough to use every day. enriched with oat extract, lavender essential oil + aloe juice to soothe + nourish. spearmint + peppermint oil adds an energizing boost. paraben, sulfate + cruelty free.   **content + care** 
+Where do you wear these clothes- in the description- can help with beach, swimming  
+
 
 
 Possible ideas:
@@ -58,7 +66,7 @@ Possible ideas:
 2) Word2Vec - can use gensim to create it but the data is too small to capture any distributional hypothesis for context words. Doubtful of its efficency
 3) TFIDF - might require less processing. Might be overkill for this usecase but likely to yield best results sicne we stick to the lexicon of this dataset and the impact of non-informative words will be lowered by the IDF and the dimension of data can be reduced. 
 
-**Final Text features :** Word2vec embeddings of the words in the sentence averaged by using tfidf scores as weights. Dimension size = 300
+**Final Text features :** Word2vec embeddings of the words in the sentence averaged by using tfidf scores as weights. Dimension size = 300. Code in [here](https://github.com/snknitin/Product-Classification-Challenge/blob/master/Text_features.ipynb)
 
 ### Image Data
 
@@ -71,7 +79,7 @@ The extracted local features must be:
 
 **Final Text features :** Flattened vectors from the VGG19 imagenet architecture, passed into feed forward layers using dropout and relu activations. Final dimension size = 256  
 
-A 100X100 grid of imagesin the data
+A 100X100 grid of images in the datam code in [here](https://github.com/snknitin/Product-Classification-Challenge/blob/master/Image_features.ipynb)
 
 ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_0.png)
 ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_100.png)
@@ -85,7 +93,7 @@ A 100X100 grid of imagesin the data
 ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_900.png)
 
 
-### Intuition
+### Intuition/Expectation
 
 
 
@@ -106,12 +114,14 @@ A 100X100 grid of imagesin the data
 
 Answers to the following questions:
 1) **Why are you designing the solution in this way?**  
-2) **What are the aspects that you considered when designing?**    
+Mentioned Above
+2) **What are the aspects that you considered when designing?** 
+Mentioned above  
 3) **What are the cases your solution covers, how are they covered and why are they important?**
-
-
-
+Needs furtehr analysis  
 4) **What are the cases your solution does not cover and what are the ways you can extend your current solution for them?**  
+
+Kmeans clustering might be too linear to separate thee data into proper clusters.
 
 Confusion Driven Probabilistic Fusion++ (CDPF++), that is cognizant of the disparity in the discriminative power of different types of signals and hence makes use of the confusion matrix of dominant signal (text in our setting) to prudently leverage the weaker signal (image), for an improved performance
 
@@ -131,6 +141,9 @@ between categories and images can be noisy if the category is broad.
 
 ## Results
 
+Classification results for all 1000 fashion products are added in the Data folder in the [labelfinal.txt](https://github.com/snknitin/Product-Classification-Challenge/blob/master/Data/label_final.txt) file
+
+
 * PCA and T-SNE on 2D 
 
      ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA2dcomb.png)
@@ -140,4 +153,3 @@ between categories and images can be noisy if the category is broad.
      ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA3dcombine.png)
      ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/T-SNE3dcombine.png)
 
-Classification results for all 1000 fashion products are added in the Data folder
