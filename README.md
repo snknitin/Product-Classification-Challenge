@@ -48,16 +48,18 @@ The ethnicity/complexion of the models wearing the clothes might not be stratifi
 
 ### Text data :
 
-Missing descriptions can be written as <UNK> with an unknown tag as a marker.    
-Around 400 descriptions start with "shop the women's", which may be indicative of certain images or products or just noise.     
-Some unnecessry tags can be manually removed, the rest of the html tags are removed by BeautifulSoup parser.  
-Tokenization and Stemming, along with removing stopwords or punctuations.
-Certain descriptions are in a different language like French and German,so it would not be useful to pull pretrained embeddings.
+* Missing descriptions can be written as <UNK> with an unknown tag as a marker.    
+* Around 400 descriptions start with "shop the women's", which may be indicative of certain images or products or just noise.     
+* Some unnecessry tags can be manually removed, the rest of the html tags are removed by BeautifulSoup parser.  
+* Tokenization and Stemming, along with removing stopwords or punctuations.
+* Certain descriptions are in a different language like French and German,so it would not be useful to pull pretrained embeddings.
+* Where do you wear these clothes- in the description- can help with beach, swimming  
+	
 Other :
-	* urban outfitters for merchandise from the weeknd's album, trilogy. shop this collection of tees and hoodies or grab a vinyl for your record player*
-	* irish moor mud purifying black mask + cucumber gel hydrating mask + pumpkin enzyme dermal mask.  **content + care***
-	* detoxifying facial cleanser from la-based port products. formulated with yucca root extract, a natural cleanser that’s gentle enough to use every day. enriched with oat extract, lavender essential oil + aloe juice to soothe + nourish. spearmint + peppermint oil adds an energizing boost. paraben, sulfate + cruelty free.   **content + care** 
-Where do you wear these clothes- in the description- can help with beach, swimming  
+* urban outfitters for merchandise from the weeknd's album, trilogy. shop this collection of tees and hoodies or grab a vinyl for your record player	
+* irish moor mud purifying black mask + cucumber gel hydrating mask + pumpkin enzyme dermal mask.  **content + care**
+* detoxifying facial cleanser from la-based port products. formulated with yucca root extract, a natural cleanser that’s gentle enough to use every day. enriched with oat extract, lavender essential oil + aloe juice to soothe + nourish. spearmint + peppermint oil adds an energizing boost. paraben, sulfate + cruelty free.   **content + care** 
+
 
 
 
