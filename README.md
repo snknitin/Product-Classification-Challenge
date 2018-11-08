@@ -73,16 +73,16 @@ The extracted local features must be:
 
 A 100X100 grid of imagesin the data
 
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_0.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_100.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_200.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_300.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_400.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_500.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_600.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_700.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_800.PNG)
-![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_900.PNG)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_0.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_100.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_200.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_300.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_400.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_500.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_600.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_700.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_800.png)
+![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/catalog/products_900.png)
 
 
 ### Intuition
@@ -133,11 +133,11 @@ between categories and images can be noisy if the category is broad.
 
 * PCA and T-SNE on 2D 
 
-     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA2dcomb.PNG)
+     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA2dcomb.png)
 
 * PCA and T-SNE on 3D 
 
-     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA3dcombine.PNG)
-     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/T-SNE3dcombine.PNG)
+     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/PCA3dcombine.png)
+     ![alt text](https://github.com/snknitin/Product-Classification-Challenge/blob/master/static/plots/T-SNE3dcombine.png)
 
 Classification results for all 1000 fashion products are added in the Data folder
